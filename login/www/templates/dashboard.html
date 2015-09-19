@@ -1,0 +1,66 @@
+<ion-view view-title="Top Opinions" name="dashboard-view">
+	<ion-nav-buttons side="right">
+		<button class="button icon ion-search" ng-click="search()"></button>
+		<button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+	</ion-nav-buttons>	
+
+	<ion-content class="padding"> 
+		<div class="list card" ng-repeat="story in stories">
+		  <div class="item item-avatar">
+		    <img  ng-src="{{story.thumbnail}}" ng-if="!story.thumbnail.startsWith('self') ">
+		    <h2>{{story.author}}</h2>
+		    <p>November 05, 1955</p>
+		    
+		  </div>
+
+		  <div class="item item-body">
+		  <h2>{{story.title}}</h2> 
+		    <img class="full-image" ng-src="{{story.thumbnail}}" ng-if="!story.thumbnail.startsWith('self')">
+		    <p>
+			  {{story.secure_media.oembed.description}}
+				<p ng-if="!story.thumbnail.startsWith('self')">{{story.domain}}</p>
+		    </p>
+		</div>
+
+		  <div class="item tabs tabs-secondary tabs-icon-left">
+		    <a class="tab-item" href="#">
+		     <i class="icon ion-thumbsup"></i>
+		      Support({{story.ups}})
+		    </a>
+		    <a class="tab-item" href="#">
+		     <i class="icon ion-thumbsdown"></i>
+		      Against({{story.downs}})
+		    </a>
+		    <a class="tab-item" href="#">
+		      <i class="icon ion-chatbox"></i>
+		      Comments ({{story.num_comments}})
+		    </a>
+		    <a class="tab-item" href="#">
+		      <i class="icon ion-share"></i>
+		      Share
+		    </a>
+		  </div>
+		</div>
+		<!--div class="row">
+			<div class="col text-center">
+				<h3 class="title">Welcome {{username}}!</h3>	
+				This could be your Dashboard
+				<br><br><br>
+				<button class="button button-full button-positive" ng-click="performValidRequest()">
+					Make Valid Request
+				</button>
+				
+				<button class="button button-full button-energized" ng-click="performUnauthorizedRequest()">
+					Make Request for unauthorized resource
+				</button>
+				
+				<button class="button button-full button-dark" ng-click="performInvalidRequest()">
+					Make Request without valid token
+				</button>
+				<br><br>
+				{{response}}
+			</div>
+		</div-->
+
+	</ion-content>
+</ion-view>
